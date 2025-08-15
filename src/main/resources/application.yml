@@ -1,0 +1,46 @@
+spring:
+  application:
+    name: Loan Gateway API
+
+  datasource:
+    url: jdbc:h2:mem:credits
+    driver-class-name: org.h2.Driver
+    username: ${ENV_DATABASE_USER:load}
+    password: ${ENV_DATABASE_PASS:load!?}
+    type: com.zaxxer.hikari.HikariDataSource
+    hikari:
+      maximum-pool-size: 18
+      minimum-idle: 2
+      idle-timeout: 300000        # 5 minutes
+      max-lifetime: 1800000       # 30 minutes
+      connection-timeout: 30000   # 30 seconds
+      leak-detection-threshold: 60000 # Warn if connection > 60s
+      auto-commit: false
+
+  h2:
+    console:
+      enabled: true
+
+  jpa:
+    show-sql: false
+    hibernate:
+      ddl-auto: update
+    properties:
+      hibernate:
+        format_sql: true
+        dialect: org.hibernate.dialect.H2Dialect
+        jdbc:
+          lob:
+            non_contextual_creation: true
+
+  sql:
+    init:
+      mode: always
+      continue-on-error: false
+
+app:
+  security:
+    # Demo mapping CUSTOMER users to their customerId
+    userCustomerMap:
+      customer.first: 1
+      customer.second: 2
