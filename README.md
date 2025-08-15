@@ -47,7 +47,7 @@ Banka çalışanları ve müşteriler, kredi oluşturabilir, görüntüleyebilir
 | `application.port.out`       | Dış dünya ile konuşmak için tanımlı port’lar (örneğin: `OrderRepositoryPort`) |
 | `domain.model`               | `Entity`, `ValueObject` gibi temel domain yapıları |
 | `domain.service`             | Domain seviyesinde iş kuralları (örneğin: `OrderValidator`) |
-| `infrastructure.grpc`        | Controller katmanı (adapter) |
+| `infrastructure.rest`        | Controller katmanı (adapter) |
 | `infrastructure.persistence` | JPA/Mongo/Redis gibi veri kaynaklarıyla etkileşim |
 | `infrastructure.messaging`   | Mesajlaşma sistemleri adapter’ları |
 | `infrastructure.config`      | Spring'e özel ayarlar, bean tanımları |
